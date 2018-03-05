@@ -1,0 +1,22 @@
+name: otbr-lool
+version: None
+summary: An open source border router, designed to work with OpenThread
+description: |
+  Per the Thread 1.1.1 Specification, a Border Router connects a 802.15.4 network to networks at different layers, such as WiFi or Ethernet. A Thread network requires a Border Router to connect to other networks.
+  A Thread Border Router minimally supports the following functions:
+  * End-to-end IP connectivity via routing between Thread devices and other external IP networks
+  * External Thread Commissioning (for example, a mobile phone) to authenticate and join a Thread device to a Thread network
+  OpenThread's implementation of a Border Router is called OpenThread Border Router (OTBR). OTBR includes a number of features, including:
+  * Web UI for configuration and management
+  * Thread Border Agent to support an External Commissioner
+  * NAT64 for connecting to IPv4 networks
+  * Thread interface driver using wpantund
+  More information about Thread can be found at threadgroup.org. Thread is a registered trademark of the Thread Group, Inc.
+grade: stable
+confinement: devmode
+
+parts:
+  otbr:
+    build-packages: [exuberant-ctags, libavahi-client-dev, libboost-dev, libboost-filesystem-dev, libboost-system-dev, libdbus-1-dev, libjsoncpp-dev, libtool, pkg-config]
+    plugin: autotools
+    source: https://github.com/openthread/borderrouter.git
